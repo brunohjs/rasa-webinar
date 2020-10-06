@@ -1,0 +1,45 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- saudacao
+- despedida
+- afirmacao
+- negacao
+- cardapio
+- finalizar
+- carrinho
+- comprar
+- aleatorio
+- desafio
+- out_of_scope
+entities:
+- produto
+- sabor
+- number
+slots:
+  carrinho:
+    type: list
+responses:
+  utter_saudacao:
+  - text: Olá! Sou um assistente vendedor de pastéis. Você gostaria de fazer um pedido?
+  utter_despedida:
+  - text: Ok! Muito obrigado pela preferência. Até mais!
+  - text: Ok! Muito obrigado pela preferência. Até logo!
+  utter_compra:
+  - text: Ainda não estou pronto para fazer isso...
+  utter_eusouumbot:
+  - text: Eu sou um bot desenvolvido em Rasa!
+  utter_possoajudar:
+  - text: Posso ajudar em mais alguma coisa?
+  - text: Posso te ajudar em mais alguma coisa?
+  utter_default:
+  - text: Desculpa, mas não entendi sua frase. Poderia repetir com palavras mais claras?
+  - text: Acho que não captei sua mensagem. Poderia repetir com palavras mais claras?
+actions:
+- action_comprar
+- action_carrinho
+- action_cardapio
+- action_resumo
+- action_finalizar
+- action_aleatorio
