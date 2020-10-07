@@ -9,7 +9,7 @@ No docker execute o comando `docker run -d -p 8000:8000 rasa/duckling` para roda
 
 Além disso, também é necessário ter o Spacy instalado na sua máquina. Para instalar, execute os comandos:
 ```
-pip install rasa[spacy]                     //para instalar o Spacy
+pip install -U spacy                        //para instalar o Spacy
 python -m spacy download pt_core_news_lg    //para baixar o modelo em português do Spacy
 ```
 
