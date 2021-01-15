@@ -73,6 +73,7 @@ nlu:
     - gostaria de solicitar 3 [pastéis]{"entity": "produto", "value": "pastel"} de [romeu e julieta](sabor)
     - quero um [pastél](produto) de [camarão](sabor) e três [pastéis]{"entity": "produto", "value": "pastel"} de [coração](sabor)
     - quero um pastél
+    - quero dois [pastelzão]{"entity": "produto", "value": "pastel"} de [camarao]{"entity": "sabor", "value": "camarão"}
     - comprar [pastel](produto) sabor [queijo](sabor)
     - quero mais um de [romeu e julieta](sabor)
     - quero comprar
@@ -138,7 +139,7 @@ nlu:
     - quero comprar 1000 bikes
     - como está o tempo na minha cidade?
     - bicicleta
-    
+
 - synonym: pastel
   examples: |
     - pastél

@@ -1,6 +1,5 @@
 version: "2.0"
 stories:
-
 - story: caminho feliz
   steps:
   - intent: saudacao
@@ -22,8 +21,22 @@ stories:
 
 - story: caminho triste
   steps:
+  - intent: saudacao
+  - action: utter_saudacao
   - intent: negacao
   - action: utter_despedida
+
+
+- story: usuário mudou de ideia
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - intent: negacao
+  - action: utter_despedida
+  - intent: saudacao
+  - action: utter_saudacao
+  - intent: afirmacao
+  - action: action_cardapio
 
 - story: estória 1
   steps:

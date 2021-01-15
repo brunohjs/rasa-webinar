@@ -19,7 +19,7 @@ pipeline:
     epochs: 100
   - name: FallbackClassifier
     threshold: 0.5
-  - name: DucklingHTTPExtractor
+  - name: DucklingEntityExtractor
     dimensions: ["number"]
     url: http://localhost:8000
 
