@@ -1,0 +1,46 @@
+version: "2.0"
+
+rules:
+
+- rule: Saudar
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+
+- rule: Despedir
+  steps:
+  - intent: despedida
+  - action: utter_despedida
+
+- rule: Ver carrinho
+  steps:
+  - intent: carrinho
+  - action: action_carrinho
+
+- rule: Comprar um produto
+  steps:
+  - intent: comprar
+  - action: action_comprar
+
+- rule: Finalizar pedido
+  steps:
+  - intent: finalizar
+  - action: action_carrinho
+  - action: action_resumo
+
+- rule: Gerar um número aleatório
+  steps:
+  - intent: aleatorio
+  - action: action_aleatorio
+
+- rule: Eu sou um bot
+  steps:
+  - intent: desafio
+  - action: utter_eusouumbot
+
+- rule: Fallback
+  steps:
+  - or:
+    - intent: out_of_scope
+    - intent: nlu_fallback
+  - action: utter_default

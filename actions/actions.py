@@ -25,6 +25,7 @@ cardapio = {
     "bacon": 4.5
 }
 
+
 class ActionComprar(Action):
     def name(self) -> Text:
         return "action_comprar"
@@ -34,7 +35,7 @@ class ActionComprar(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         text = ''
         quantidade = utils.getNumber(tracker.latest_message['entities'])
-        sabor = utils.getFlavor(tracker.latest_message['entities']) 
+        sabor = utils.getFlavor(tracker.latest_message['entities'])
         carrinho = tracker.get_slot('carrinho')
         if quantidade and sabor:
             if cardapio.get(sabor):
@@ -53,10 +54,10 @@ class ActionComprar(Action):
         else:
             text = 'Por favor, informe o sabor e a quantidade.'
         dispatcher.utter_message(text=text, buttons=[
-                {"title": "Pedir pastel", "payload": "/cardapio"},
-                {"title": "Carrinho", "payload": "/carrinho"},
-                {"title": "Finalizar pedido", "payload": "/finalizar"},
-                {"title": "Sair", "payload": "/despedida"}
+            {"title": "Pedir pastel", "payload": "/cardapio"},
+            {"title": "Carrinho", "payload": "/carrinho"},
+            {"title": "Finalizar pedido", "payload": "/finalizar"},
+            {"title": "Sair", "payload": "/despedida"}
         ])
         return [SlotSet("carrinho", carrinho)]
 
@@ -82,6 +83,7 @@ class ActionCarrinho(Action):
         dispatcher.utter_message(text)
         return []
 
+
 class ActionCardapio(Action):
     def name(self) -> Text:
         return "action_cardapio"
@@ -92,9 +94,10 @@ class ActionCardapio(Action):
         text = 'Aqui está nosso cardápio:\n\n'
         for sabor in cardapio:
             text += f' - {sabor}: R$ {utils.formatMoney(cardapio[sabor])}\n\n'
-        text += f'Você vai querer qual pastel? Digite sabor e quantidade.'
+        text += 'Você vai querer qual pastel? Digite sabor e quantidade.'
         dispatcher.utter_message(text)
         return []
+
 
 class ActionResumo(Action):
     def name(self) -> Text:
@@ -106,6 +109,7 @@ class ActionResumo(Action):
         dispatcher.utter_message(text="Deseja finalizar a compra?")
         return []
 
+
 class ActionFinalizar(Action):
     def name(self) -> Text:
         return "action_finalizar"
@@ -115,6 +119,7 @@ class ActionFinalizar(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(text="Seu pedido foi finalizado! Muito obrigado!")
         return [SlotSet("carrinho", [])]
+
 
 class ActionAleatorio(Action):
     def name(self) -> Text:
