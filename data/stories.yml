@@ -1,0 +1,80 @@
+version: "2.0"
+stories:
+
+- story: caminho feliz
+  steps:
+  - intent: saudacao
+  - action: utter_saudacao
+  - intent: afirmacao
+  - action: action_cardapio
+  - intent: comprar
+  - action: action_comprar
+  - intent: carrinho
+  - action: action_carrinho
+  - intent: finalizar
+  - action: action_carrinho
+  - action: action_resumo
+  - intent: afirmacao
+  - action: action_finalizar
+  - action: utter_possoajudar
+  - intent: negacao
+  - action: utter_despedida
+
+- story: caminho triste
+  steps:
+  - intent: negacao
+  - action: utter_despedida
+
+- story: estória 1
+  steps:
+  - intent: comprar
+    entities:
+    - produto: pastel
+    - number: 1
+  - action: action_comprar
+  - intent: comprar
+  - action: action_comprar
+  - intent: carrinho
+  - action: action_carrinho
+  - intent: despedida
+  - action: utter_despedida
+
+- story: compra rápida
+  steps:
+  - intent: comprar
+  - action: action_comprar
+  - intent: finalizar
+  - action: action_carrinho
+  - action: action_resumo
+  - intent: afirmacao
+  - action: action_finalizar
+  - action: utter_possoajudar
+  - intent: negacao
+  - action: utter_despedida
+
+- story: compra errada
+  steps:
+  - intent: comprar
+  - action: action_comprar
+  - intent: cardapio
+  - action: action_cardapio
+  - intent: comprar
+  - action: action_comprar
+  - intent: finalizar
+  - action: action_carrinho
+  - action: action_resumo
+  - intent: afirmacao
+  - action: action_finalizar
+  - action: utter_possoajudar
+  - intent: negacao
+  - action: utter_despedida
+
+- story: volta ao menu
+  steps:
+  - intent: comprar
+  - action: action_comprar
+  - intent: finalizar
+  - action: action_carrinho
+  - action: action_resumo
+  - intent: negacao
+  - action: utter_possoajudar
